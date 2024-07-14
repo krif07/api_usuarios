@@ -19,7 +19,7 @@ class CargaMasivaView(View):
         io_string = io.StringIO(data_set)
         next(io_string)  # Saltar la fila de encabezado
 
-        api_url = "http://127.0.0.1:8000/api/v1/usuarios/"
+        api_url = "http://127.0.0.1:8004/api/v1/usuarios/"
 
         for row in csv.reader(io_string, delimiter=','):
             payload = {

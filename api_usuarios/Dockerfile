@@ -7,7 +7,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-WORKDIR /app/api_usuarios
 RUN python manage.py migrate
 
 EXPOSE 8000

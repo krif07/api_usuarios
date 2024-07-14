@@ -17,35 +17,13 @@ django-admin startapp carga_usuarios
 python manage.py makemigrations
 python manage.py migrate
 
-# Ejecuta el servidor de desarrollo
-python manage.py runserver
+# Ejecutar la aplicación con docker-compose
 
-# Construir la imagen de Docker
-docker build -t my_django_app .
+# 1. Crear las imágenes 
+docker-compose up --build
 
-# Ejecutar el contenedor
-docker run -p 8000:8000 my_django_app
+# 2. Probar en estas urls
 
-# Ejecutar la aplicación
-
-# Paso 1: Navegar al Directorio de la Aplicación
-cd /path/to/mi_proyecto/api_usuarios
-
-# Paso 2: Construir la Imagen Docker
-docker build -t api_usuarios_image .
-
-# Paso 3: Ejecutar el Contenedor
-docker run -d -p 8003:8000 --name api_usuarios_container api_usuarios_image
-
-# Paso 4: Verificar que el Contenedor esté Corriendo
-docker ps
-
-# Paso 5: Acceder a la Aplicación
-La aplicación debería estar accesible en http://127.0.0.1:8003.
-
-# Otros pasos
-docker stop api_usuarios_container
-docker rm api_usuarios_container
-docker logs api_usuarios_container
-docker exec -it api_usuarios_container /bin/bash
+api_usuarios debería estar accesible en http://127.0.0.1:8003/api/v1/usuarios/.
+sitio_usuarios debería estar accesible en http://127.0.0.1:8004/carga/carga-masiva/.
 

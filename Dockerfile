@@ -23,8 +23,8 @@ WORKDIR /app/sitio_usuarios
 RUN python manage.py migrate
 
 # Exponer los puertos 8000 y 8003
-EXPOSE 8001
-EXPOSE 8004
+EXPOSE 8000
+EXPOSE 8003
 
 # Comando para ejecutar ambas aplicaciones con gunicorn
 CMD ["sh", "-c", "gunicorn api_usuarios.wsgi:application --bind 0.0.0.0:8004 & gunicorn sitio_usuarios.wsgi:application --bind 0.0.0.0:8001"]
