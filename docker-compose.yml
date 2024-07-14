@@ -1,0 +1,29 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  api_usuarios:
+    build:
+      context: ./api_usuarios
+      dockerfile: Dockerfile
+    container_name: api_usuarios
+    ports:
+      - "8003:8000"
+    volumes:
+      - ./api_usuarios:/app
+    environment:
+      - DJANGO_SETTINGS_MODULE=api_usuarios.settings
+
+  sitio_usuarios:
+    build:
+      context: ./sitio_usuarios
+      dockerfile: Dockerfile
+    container_name: sitio_usuarios
+    ports:
+      - "8004:8001"
+    volumes:
+      - ./sitio_usuarios:/app
+    environment:
+      - DJANGO_SETTINGS_MODULE=sitio_usuarios.settings
+    depends_on:
+      - api_usuarios

@@ -25,3 +25,27 @@ docker build -t my_django_app .
 
 # Ejecutar el contenedor
 docker run -p 8000:8000 my_django_app
+
+# Ejecutar la aplicación
+
+# Paso 1: Navegar al Directorio de la Aplicación
+cd /path/to/mi_proyecto/api_usuarios
+
+# Paso 2: Construir la Imagen Docker
+docker build -t api_usuarios_image .
+
+# Paso 3: Ejecutar el Contenedor
+docker run -d -p 8003:8000 --name api_usuarios_container api_usuarios_image
+
+# Paso 4: Verificar que el Contenedor esté Corriendo
+docker ps
+
+# Paso 5: Acceder a la Aplicación
+La aplicación debería estar accesible en http://127.0.0.1:8003.
+
+# Otros pasos
+docker stop api_usuarios_container
+docker rm api_usuarios_container
+docker logs api_usuarios_container
+docker exec -it api_usuarios_container /bin/bash
+

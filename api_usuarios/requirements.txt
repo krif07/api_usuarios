@@ -1,4 +1,3 @@
 Django
 django-ninja
 requests
-gunicorn

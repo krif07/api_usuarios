@@ -6,7 +6,7 @@ class Usuario(models.Model):
     apellido_paterno = models.CharField(max_length=50)
     apellido_materno = models.CharField(max_length=50)
     edad = models.IntegerField()
-    nombre_cuenta = models.CharField(max_length=50, unique=True)
+    nombre_cuenta = models.CharField(max_length=50)
     contrasena = models.CharField(max_length=128)
 
     def __str__(self):
