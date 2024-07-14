@@ -2,11 +2,13 @@
 version: '3.8'
 
 services:
-  api_usuarios:
+  apiusuarios:
     build:
       context: ./api_usuarios
       dockerfile: Dockerfile
     container_name: api_usuarios
+    expose:
+      - 8000
     ports:
       - "8003:8000"
     volumes:
@@ -26,4 +28,4 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=sitio_usuarios.settings
     depends_on:
-      - api_usuarios
+      - apiusuarios
